@@ -1,6 +1,7 @@
--- Auto-generated from feature-modules-postgres.psd1 (map@mtime:2025-11-27T14:08:26Z)
+-- Auto-generated from feature-modules-postgres.yaml (map@94ebe6c)
 -- engine: postgres
 -- table:  key_wrapper_layers_summary
+
 -- Key wrappers with layer counts and PQC flag
 CREATE OR REPLACE VIEW vw_key_wrapper_layers_summary AS
 SELECT
@@ -17,9 +18,10 @@ LEFT JOIN crypto_algorithms ca   ON ca.id = kwl.kem_algo_id
 GROUP BY kw.id, kw.wrapper_uuid, kw.status
 ORDER BY kw.id DESC;
 
--- Auto-generated from feature-modules-postgres.psd1 (map@mtime:2025-11-27T14:08:26Z)
+-- Auto-generated from feature-modules-postgres.yaml (map@94ebe6c)
 -- engine: postgres
 -- table:  key_wrappers_missing_pq
+
 -- Wrappers without any PQ layer
 CREATE OR REPLACE VIEW vw_key_wrappers_missing_pq AS
 SELECT
