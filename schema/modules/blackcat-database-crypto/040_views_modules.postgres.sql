@@ -1,4 +1,4 @@
--- Auto-generated from feature-modules-postgres.yaml (map@85230ed)
+-- Auto-generated from feature-modules-postgres.yaml (map@sha1:A8D58997CBCD2EEE06670B1C02AD89FA65E66F67)
 -- engine: postgres
 -- table:  key_wrapper_layers_summary
 
@@ -18,7 +18,7 @@ LEFT JOIN crypto_algorithms ca   ON ca.id = kwl.kem_algo_id
 GROUP BY kw.id, kw.wrapper_uuid, kw.status
 ORDER BY kw.id DESC;
 
--- Auto-generated from feature-modules-postgres.yaml (map@85230ed)
+-- Auto-generated from feature-modules-postgres.yaml (map@sha1:A8D58997CBCD2EEE06670B1C02AD89FA65E66F67)
 -- engine: postgres
 -- table:  key_wrappers_missing_pq
 
