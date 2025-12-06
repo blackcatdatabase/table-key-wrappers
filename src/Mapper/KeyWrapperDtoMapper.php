@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class KeyWrapperDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'wrapper_uuid' => 'wrapperUuid', 'kms1_key_id' => 'kms1KeyId', 'kms2_key_id' => 'kms2KeyId', 'dek_wrap1' => 'dekWrap1', 'dek_wrap2' => 'dekWrap2', 'crypto_suite' => 'cryptoSuite', 'wrap_version' => 'wrapVersion', 'created_at' => 'createdAt', 'rotated_at' => 'rotatedAt' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'wrapper_uuid' => 'wrapperUuid', 'kms1_key_id' => 'kms1KeyId', 'kms2_key_id' => 'kms2KeyId', 'dek_wrap1' => 'dekWrap1', 'dek_wrap2' => 'dekWrap2', 'crypto_suite' => 'cryptoSuite', 'wrap_version' => 'wrapVersion', 'status' => 'status', 'created_at' => 'createdAt', 'rotated_at' => 'rotatedAt' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [];
@@ -39,13 +39,8 @@ final class KeyWrapperDtoMapper
 
     private static function tz(): DateTimeZone
     {
-        if (self::$tzObj instanceof DateTimeZone) {
-            return self::$tzObj;
-        }
-        try {
+        if (!(self::$tzObj instanceof DateTimeZone)) {
             self::$tzObj = new DateTimeZone(self::TZ);
-        } catch (\Throwable) {
-            self::$tzObj = new DateTimeZone('UTC');
         }
         return self::$tzObj;
     }
