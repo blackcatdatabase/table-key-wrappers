@@ -6,16 +6,16 @@ Composite wrappers protecting DEKs with multiple KMS/crypto layers.
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
 | created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
-| crypto_suite | mysql: JSON / postgres: JSONB | YES |  | JSON description of the crypto suite used. |
-| dek_wrap1 | mysql: LONGBLOB / postgres: BYTEA | NO |  | First wrapped DEK blob. |
-| dek_wrap2 | mysql: LONGBLOB / postgres: BYTEA | NO |  | Second wrapped DEK blob. |
-| id | BIGINT | NO |  | Surrogate primary key. |
-| kms1_key_id | BIGINT | NO |  | Primary wrapping KMS key. |
-| kms2_key_id | BIGINT | NO |  | Secondary wrapping KMS key. |
-| rotated_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | When the wrapper was rotated, if ever. |
-| status | mysql: ENUM('active','rotated','retired','invalid') / postgres: TEXT | NO | active | Lifecycle flag. (enum: active, rotated, retired, invalid) |
-| wrap_version | mysql: INT / postgres: INTEGER | NO | 1 | Version number for the wrapper format. |
 | wrapper_uuid | CHAR(36) | NO |  | Stable UUID identifier. |
+| id | BIGINT | NO |  | Surrogate primary key. |
+| wrap_version | mysql: INT / postgres: INTEGER | NO | 1 | Version number for the wrapper format. |
+| dek_wrap2 | mysql: LONGBLOB / postgres: BYTEA | NO |  | Second wrapped DEK blob. |
+| dek_wrap1 | mysql: LONGBLOB / postgres: BYTEA | NO |  | First wrapped DEK blob. |
+| status | mysql: ENUM('active','rotated','retired','invalid') / postgres: TEXT | NO | active | Lifecycle flag. (enum: active, rotated, retired, invalid) |
+| kms2_key_id | BIGINT | NO |  | Secondary wrapping KMS key. |
+| crypto_suite | mysql: JSON / postgres: JSONB | YES |  | JSON description of the crypto suite used. |
+| kms1_key_id | BIGINT | NO |  | Primary wrapping KMS key. |
+| rotated_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | When the wrapper was rotated, if ever. |
 
 ## Engine Details
 
