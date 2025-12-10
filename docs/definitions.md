@@ -14,8 +14,8 @@ Composite wrappers protecting DEKs with multiple KMS/crypto layers.
 | kms2_key_id | BIGINT | NO |  | Secondary wrapping KMS key. |
 | rotated_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | When the wrapper was rotated, if ever. |
 | status | mysql: ENUM('active','rotated','retired','invalid') / postgres: TEXT | NO | active | Lifecycle flag. (enum: active, rotated, retired, invalid) |
-| wrap_version | mysql: INT / postgres: INTEGER | NO | 1 | Version number for the wrapper format. |
 | wrapper_uuid | CHAR(36) | NO |  | Stable UUID identifier. |
+| wrap_version | mysql: INT / postgres: INTEGER | NO | 1 | Version number for the wrapper format. |
 
 ## Engine Details
 
