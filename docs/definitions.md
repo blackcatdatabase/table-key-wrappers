@@ -5,17 +5,17 @@ Composite wrappers protecting DEKs with multiple KMS/crypto layers.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
-| crypto_suite | JSON | YES |  | JSON description of the crypto suite used. |
-| dek_wrap1 | LONGBLOB | NO |  | First wrapped DEK blob. |
-| dek_wrap2 | LONGBLOB | NO |  | Second wrapped DEK blob. |
 | id | BIGINT | NO |  | Surrogate primary key. |
+| wrapper_uuid | CHAR(36) | NO |  | Stable UUID identifier. |
 | kms1_key_id | BIGINT | NO |  | Primary wrapping KMS key. |
 | kms2_key_id | BIGINT | NO |  | Secondary wrapping KMS key. |
-| rotated_at | DATETIME(6) | YES |  | When the wrapper was rotated, if ever. |
-| status | ENUM('active','rotated','retired','invalid') | NO | active | Lifecycle flag. (enum: active, rotated, retired, invalid) |
-| wrap_version | INT | NO | 1 | Version number for the wrapper format. |
-| wrapper_uuid | CHAR(36) | NO |  | Stable UUID identifier. |
+| dek_wrap1 | mysql: LONGBLOB / postgres: BYTEA | NO |  | First wrapped DEK blob. |
+| dek_wrap2 | mysql: LONGBLOB / postgres: BYTEA | NO |  | Second wrapped DEK blob. |
+| crypto_suite | mysql: JSON / postgres: JSONB | YES |  | JSON description of the crypto suite used. |
+| wrap_version | mysql: INT / postgres: INTEGER | NO | 1 | Version number for the wrapper format. |
+| status | mysql: ENUM('active','rotated','retired','invalid') / postgres: TEXT | NO | active | Lifecycle flag. (enum: active, rotated, retired, invalid) |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
+| rotated_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | When the wrapper was rotated, if ever. |
 
 ## Engine Details
 
@@ -66,5 +66,5 @@ Foreign keys:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_key_wrappers | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
-| vw_key_wrappers | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
+| vw_key_wrappers | mysql | algorithm=MERGE, security=INVOKER | [../schema/040_views.mysql.sql](../schema/040_views.mysql.sql) |
+| vw_key_wrappers | postgres |  | [../schema/040_views.postgres.sql](../schema/040_views.postgres.sql) |
