@@ -41,11 +41,11 @@ final class Criteria extends BaseCriteria
         return [ 'wrapper_uuid' ];
     }
 
-/** Columns allowed in ORDER BY (falls back to filterable() when empty). */
-protected function sortable(): array
-{
-    return [ 'id', 'wrapper_uuid', 'kms1_key_id', 'kms2_key_id', 'wrap_version', 'status', 'created_at', 'rotated_at' ];
-}
+    /** Columns allowed in ORDER BY (falls back to filterable() when empty). */
+    protected function sortable(): array
+    {
+        return [ 'id', 'wrapper_uuid', 'kms1_key_id', 'kms2_key_id', 'wrap_version', 'status', 'created_at', 'rotated_at' ];
+    }
 
     /**
      * Whitelist of joinable entities (for safe ->join() usage):

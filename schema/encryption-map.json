@@ -1,0 +1,41 @@
+{
+  "tables": {
+    "key_wrappers": {
+      "columns": {
+        "created_at": {
+          "strategy": "passthrough"
+        },
+        "crypto_suite": {
+          "strategy": "passthrough"
+        },
+        "dek_wrap1": {
+          "strategy": "passthrough"
+        },
+        "dek_wrap2": {
+          "strategy": "passthrough"
+        },
+        "id": {
+          "strategy": "passthrough"
+        },
+        "kms1_key_id": {
+          "strategy": "passthrough"
+        },
+        "kms2_key_id": {
+          "strategy": "passthrough"
+        },
+        "rotated_at": {
+          "strategy": "passthrough"
+        },
+        "status": {
+          "strategy": "passthrough"
+        },
+        "wrap_version": {
+          "strategy": "passthrough"
+        },
+        "wrapper_uuid": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}

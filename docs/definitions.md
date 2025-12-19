@@ -3,19 +3,19 @@
 Composite wrappers protecting DEKs with multiple KMS/crypto layers.
 
 ## Columns
-| Column | Type | Null | Default | Description |
-| --- | --- | --- | --- | --- |
-| id | BIGINT | NO |  | Surrogate primary key. |
-| wrapper_uuid | CHAR(36) | NO |  | Stable UUID identifier. |
-| kms1_key_id | BIGINT | NO |  | Primary wrapping KMS key. |
-| kms2_key_id | BIGINT | NO |  | Secondary wrapping KMS key. |
-| dek_wrap1 | mysql: LONGBLOB / postgres: BYTEA | NO |  | First wrapped DEK blob. |
-| dek_wrap2 | mysql: LONGBLOB / postgres: BYTEA | NO |  | Second wrapped DEK blob. |
-| crypto_suite | mysql: JSON / postgres: JSONB | YES |  | JSON description of the crypto suite used. |
-| wrap_version | mysql: INT / postgres: INTEGER | NO | 1 | Version number for the wrapper format. |
-| status | mysql: ENUM('active','rotated','retired','invalid') / postgres: TEXT | NO | active | Lifecycle flag. (enum: active, rotated, retired, invalid) |
-| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
-| rotated_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | When the wrapper was rotated, if ever. |
+| Column | Type | Null | Default | Description | Crypto |
+| --- | --- | --- | --- | --- | --- |
+| id | BIGINT | NO |  | Surrogate primary key. |  |
+| wrapper_uuid | CHAR(36) | NO |  | Stable UUID identifier. |  |
+| kms1_key_id | BIGINT | NO |  | Primary wrapping KMS key. |  |
+| kms2_key_id | BIGINT | NO |  | Secondary wrapping KMS key. |  |
+| dek_wrap1 | mysql: LONGBLOB / postgres: BYTEA | NO |  | First wrapped DEK blob. |  |
+| dek_wrap2 | mysql: LONGBLOB / postgres: BYTEA | NO |  | Second wrapped DEK blob. |  |
+| crypto_suite | mysql: JSON / postgres: JSONB | YES |  | JSON description of the crypto suite used. |  |
+| wrap_version | mysql: INT / postgres: INTEGER | NO | 1 | Version number for the wrapper format. |  |
+| status | mysql: ENUM('active','rotated','retired','invalid') / postgres: TEXT | NO | active | Lifecycle flag. (enum: active, rotated, retired, invalid) |  |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |  |
+| rotated_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | When the wrapper was rotated, if ever. |  |
 
 ## Engine Details
 
